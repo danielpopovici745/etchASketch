@@ -1,0 +1,17 @@
+ /* Daniel Popovici - style.css 7/21/2022 */
+
+ body{
+    background-color: #212121;
+ }
+ #pageContainer{
+    display: flex;
+    height: 100vh;
+    flex-wrap: wrap;
+   align-items: space-between;
+ }
+
+ .square{
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+ }
