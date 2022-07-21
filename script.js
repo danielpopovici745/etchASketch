@@ -1,21 +1,21 @@
 // Daniel Popovici - script.js 7/21/2022
 
-//function that creates all the grid squares (make them divs?)
+let pageContainer = document.querySelector("#pageContainer");
+let grid = document.createElement("div");
+grid.setAttribute("id","grid");
+pageContainer.appendChild(grid);
 
-function createGrid(){
-    let pageContainer = document.querySelector("#pageContainer");
-    let squareGrid = document.createElement("div");
-    squareGrid.setAttribute("id","grid");
-    pageContainer.appendChild(squareGrid);
-
-    for(let i = 1;i<=16;i++){
+for(let i = 1;i<=16;i++){
+    let row = document.createElement("div");
+    row.setAttribute("class",`row`);
+    grid.appendChild(row);
+    for(let i =1; i<=16;i++){
         let square = document.createElement("div");
         square.setAttribute("class","square");
-        squareGrid.appendChild(square);
+        row.appendChild(square);
     }
 }
-
-createGrid();
-
-
-
+const squares = document.querySelectorAll(".square");
+console.log(squares);
+squares.forEach(sq => sq.addEventListener('mouseover',() => sq.setAttribute("style","background-color:black; transition: background-color ease 0.3s;"))
+);
