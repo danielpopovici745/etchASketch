@@ -34,30 +34,43 @@ button:active{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 60px;
 }
 #grid{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-around;
-    max-width: 940px;
+    align-items: center;
+    min-width: 940px;
+    width: 940px;
+    height: 940px;
 }
 
 .row{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-basis: auto;
     gap: 20px;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .square{
+    display: flex;
     width: 40px;
-    height: 40px;
+    height: 100%;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0px 0px 15px #000 ;
+    flex-grow: 1;
 }
 
 #buttonContainer{
     display: flex;
     flex-direction: column;
+    gap: 50px;
 }
