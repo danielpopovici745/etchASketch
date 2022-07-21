@@ -40,12 +40,12 @@ button:active{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
     justify-content: space-around;
     align-items: center;
-    min-width: 940px;
-    width: 940px;
-    height: 940px;
+    min-width: 850px;
+    width: 850px;
+    height: 850px;
 }
 
 .row{
@@ -54,7 +54,7 @@ button:active{
     justify-content: center;
     width: 100%;
     flex-basis: auto;
-    gap: 20px;
+    gap: 15px;
     flex-grow: 1;
     flex-shrink: 1;
 }
