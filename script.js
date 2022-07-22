@@ -90,12 +90,10 @@ const resetGrid = document.createElement("button");
 resetGrid.setAttribute("id","resetGrid");
 resetGrid.textContent = 'RESET';
 resetGrid.addEventListener('click',function(){
-    destroyGrid();
-    createGrid(sides); 
+    squares.forEach(sq => sq.setAttribute("style","background-color:#fff; transition: background-color ease 0.3s;"));
 });
 resetGrid.addEventListener('touchdown',function(){
-    destroyGrid();
-    createGrid(sides); 
+    squares.forEach(sq => sq.setAttribute("style","background-color:#fff; transition: background-color ease 0.3s;")); 
 });
 buttonContainer.appendChild(resetGrid);
 
