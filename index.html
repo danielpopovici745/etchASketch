@@ -9,7 +9,13 @@
 </head>
 <body>
     <div id="pageContainer">
-        <div id="buttonContainer"></div>
+        <div id="buttonContainer">
+            <div id="sliderContainer">
+                <span id="sliderText"># of Tiles</span>
+                <input type="range" min="1" max="100" value="16" oninput="rangeValue.textContent = slider.value" id="slider">
+                <span id="rangeValue">16</span>
+            </div>
+        </div>
     </div>
 </body>
 </html>

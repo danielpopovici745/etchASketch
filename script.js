@@ -6,6 +6,9 @@ const grid = document.createElement("div");
 grid.setAttribute("id","grid");
 pageContainer.appendChild(grid);
 let sides = 16;
+
+//creates the grid of squares
+
 function createGrid(sides){
     for(let i = 1;i<=sides;i++){
         let row = document.createElement("div");
@@ -21,6 +24,8 @@ function createGrid(sides){
     giveTilesMouseOver(squares);
 }
 
+//destroys the grid which will be replaced by a new one by createGrid()
+
 function destroyGrid(){
     squares.forEach(sq => sq.remove());
     const rows = document.querySelectorAll(".row");
@@ -29,38 +34,24 @@ function destroyGrid(){
     )
 }
 
+//grants each tile a mouseover listener
+
 function giveTilesMouseOver(){
     
     squares.forEach(sq => sq.addEventListener('mouseover',() => sq.setAttribute("style","background-color:#000000; transition: background-color ease 0.3s;"))
     );
 }
 
-createGrid(sides);
+// Slider
 
-
-const howManySquaresButton = document.createElement('button');
-howManySquaresButton.textContent = '# of Tiles per Side';
-howManySquaresButton.addEventListener('click',function(){
-    sides = prompt("How many tiles per side would you like? (Enter an integer between 0 and 48");
-    if(sides > 47){
-        while(sides > 47){
-            sides = prompt("Sorry,this many tiles will make the grid disappear. Please enter an integer smaller than 48");
-        }
-        
-    }
-    if(sides == undefined || sides == 0){
-        while(sides == undefined || sides == 0){
-            sides = prompt("How many tiles per side would you like? (Enter an integer between 0 and 48");
-        }
-        
-    }
-    
-    
+let slider = document.querySelector("#slider");
+slider.addEventListener("mouseup",function(){
+    sides = document.querySelector("#slider").value;
     destroyGrid();
     createGrid(sides);
 });
-buttonContainer.appendChild(howManySquaresButton);
 
+//Reset Button
 
 const resetGrid = document.createElement("button");
 resetGrid.setAttribute("id","resetGrid");
@@ -71,5 +62,5 @@ resetGrid.addEventListener('click',function(){
 buttonContainer.appendChild(resetGrid);
 
 
-
-
+//creates first grid when page loades
+createGrid(sides);
