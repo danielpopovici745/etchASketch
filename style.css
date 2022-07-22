@@ -97,10 +97,23 @@ button:active{
     #pageContainer{
         flex-direction: column;
     }
+    #grid{
+        width: 400px;
+        height: 400px;
+    }
 }
 @media (max-width:510px){
     #grid{
         width: 300px;
         height: 300px;
+    }
+}
+@media (max-width:320px){
+    #pageContainer{
+       gap: 4px;
+    }
+    #grid{
+        width: 250px;
+        height: 250px;
     }
 }

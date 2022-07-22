@@ -21,7 +21,7 @@ function createGrid(sides){
         }
     }
     squares = document.querySelectorAll(".square");
-    giveTilesMouseOver(squares);
+    giveTilesMouseOver();
 }
 
 //destroys the grid which will be replaced by a new one by createGrid()
@@ -37,9 +37,16 @@ function destroyGrid(){
 //grants each tile a mouseover listener
 
 function giveTilesMouseOver(){
+    squares.forEach(sq => sq.addEventListener("mouseover",() => sq.setAttribute("style","background-color:#000000; transition: background-color ease 0.3s;")))
     
-    squares.forEach(sq => sq.addEventListener('mouseover',() => sq.setAttribute("style","background-color:#000000; transition: background-color ease 0.3s;"))
-    );
+}
+
+// function test(sq){
+//     sq.addEventListener("mouseover",() => );
+// }
+
+function randomRGB(){
+    return Math.floor(Math.random()*257)
 }
 
 // Slider
@@ -56,16 +63,39 @@ slider.addEventListener("touchend",function(){
     createGrid(sides);
 });
 
+//RGB Mode
+
+const randomMode = document.createElement("button");
+randomMode.textContent="RGB Mode"
+randomMode.addEventListener('click',function(){
+    squares.forEach(function(sq)
+    {
+        sq.addEventListener("mouseover",() => sq.setAttribute("style",`background-color:rgb(${randomRGB()},${randomRGB()},${randomRGB()}); transition: background-color ease 0.3s`));
+    });
+});
+buttonContainer.appendChild(randomMode);
+
+//etchASketch Mode
+
+const etchASketch = document.createElement("button");
+etchASketch.textContent="Dark Mode"
+etchASketch.addEventListener("click",giveTilesMouseOver);
+buttonContainer.appendChild(etchASketch);
+etchASketch.addEventListener("touch",giveTilesMouseOver);
+buttonContainer.appendChild(etchASketch);
+
 //Reset Button
 
 const resetGrid = document.createElement("button");
 resetGrid.setAttribute("id","resetGrid");
 resetGrid.textContent = 'RESET';
 resetGrid.addEventListener('click',function(){
-    squares.forEach(sq => sq.setAttribute("style","background-color:#ffffff; transition: background-color ease 0.3s"))
+    destroyGrid();
+    createGrid(sides); 
 });
 resetGrid.addEventListener('touchdown',function(){
-    squares.forEach(sq => sq.setAttribute("style","background-color:#ffffff; transition: background-color ease 0.3s"))
+    destroyGrid();
+    createGrid(sides); 
 });
 buttonContainer.appendChild(resetGrid);
 
