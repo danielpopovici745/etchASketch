@@ -50,6 +50,11 @@ slider.addEventListener("mouseup",function(){
     destroyGrid();
     createGrid(sides);
 });
+slider.addEventListener("touchend",function(){
+    sides = document.querySelector("#slider").value;
+    destroyGrid();
+    createGrid(sides);
+});
 
 //Reset Button
 
@@ -57,6 +62,9 @@ const resetGrid = document.createElement("button");
 resetGrid.setAttribute("id","resetGrid");
 resetGrid.textContent = 'RESET';
 resetGrid.addEventListener('click',function(){
+    squares.forEach(sq => sq.setAttribute("style","background-color:#ffffff; transition: background-color ease 0.3s"))
+});
+resetGrid.addEventListener('touchdown',function(){
     squares.forEach(sq => sq.setAttribute("style","background-color:#ffffff; transition: background-color ease 0.3s"))
 });
 buttonContainer.appendChild(resetGrid);
